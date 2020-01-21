@@ -1,0 +1,48 @@
+<template>
+  <div class="page" data-name="discover">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <a href="/"><i class="icon material-icons if-md">arrow_back</i></a>
+        <div class="title">Discover</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="list no-hairlines-md">
+        <div class="block-header">Simple Dropdown Autocomplete</div>
+        <ul>
+          <li class="item-content item-input inline-label">
+            <div class="item-inner">
+              <div class="item-title item-label">Genre : </div>
+              <div class="item-input-wrap">
+                <input id="autocomplete-dropdown" type="text" placeholder="Fruit">
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input inline-label">
+            <div class="item-inner">
+              <div class="item-title item-label">Person : </div>
+              <div class="item-input-wrap">
+                <input id="autocomplete-dropdown" type="text" placeholder="Fruit">
+              </div>
+            </div>
+          </li>
+          <li>
+            <span>Finding Genre : </span><br/>
+            <span>Finding person : </span>
+          </li>
+        </ul>
+      </div>
+      </ul>
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    data: function () {
+      return {
+        products: this.$root.products,
+      };
+    }
+  };
+</script>

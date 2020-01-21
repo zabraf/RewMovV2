@@ -1,16 +1,12 @@
-import $$ from 'dom7';
-import Framework7 from 'framework7/framework7.esm.bundle.js';
+import HomePage from '../pages/home.f7.html';
+import Favorites from '../pages/favorites.f7.html';
+import Search from '../pages/search.f7.html';
+import Discover from '../pages/discover.f7.html';
+import Detailed from '../pages/detailed.f7.html';
 
-// Import F7 Styles
-import 'framework7/css/framework7.bundle.css';
-
-// Import Icons and App Custom Styles
-import '../css/icons.css';
-import '../css/app.css';
-// Import Cordova APIs
-import cordovaApp from './cordova-app.js';
-// Import Routes
-import routes from './routes.js';
+import DynamicRoutePage from '../pages/dynamic-route.f7.html';
+import RequestAndLoad from '../pages/request-and-load.f7.html';
+import NotFoundPage from '../pages/404.f7.html';
 
 var db = openDatabase('mydb', '1.0', 'DB_Movies', 5 * 1024 * 1024);
 function CreateMovies() {
@@ -128,7 +124,95 @@ var app = new Framework7({
     },
   },
   // App routes
-  routes: routes,
+  routes : [
+    {
+      path: '/',
+      component: HomePage,
+      on : {
+        pageAfterIn: function (e, page) {
+          GetHTMLNowPlayingMovies();
+        },
+      }
+    },
+    {
+      path: '/movie/:id',
+      component: Detailed,
+    },
+    {
+      path: '/favorites/',
+      component: Favorites,
+    },
+    {
+      path: '/search/',
+      component: Search,
+    },
+    {
+      path: '/discover/',
+      component: Discover,
+    },
+    {
+      path: '/detailed/:index',
+      component: Detailed,
+    },
+    {
+      path: '/dynamic-route/blog/:blogId/post/:postId/',
+      component: DynamicRoutePage,
+    },
+    {
+      path: '/request-and-load/user/:userId/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Router instance
+        var router = this;
+  
+        // App instance
+        var app = router.app;
+  
+        // Show Preloader
+        app.preloader.show();
+  
+        // User ID from request
+        var userId = routeTo.params.userId;
+  
+        // Simulate Ajax Request
+        setTimeout(function () {
+          // We got user data from request
+          var user = {
+            firstName: 'Vladimir',
+            lastName: 'Kharlampidi',
+            about: 'Hello, i am creator of Framework7! Hope you like it!',
+            links: [
+              {
+                title: 'Framework7 Website',
+                url: 'http://framework7.io',
+              },
+              {
+                title: 'Framework7 Forum',
+                url: 'http://forum.framework7.io',
+              },
+            ]
+          };
+          // Hide Preloader
+          app.preloader.hide();
+  
+          // Resolve route to load page
+          resolve(
+            {
+              component: RequestAndLoad,
+            },
+            {
+              context: {
+                user: user,
+              }
+            }
+          );
+        }, 1000);
+      },
+    },
+    {
+      path: '(.*)',
+      component: NotFoundPage,
+    },
+  ],
 
 
   // Input settings

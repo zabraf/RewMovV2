@@ -8,10 +8,11 @@
       <!-- Color theme for statusbar -->
       <meta name="theme-color" content="#2196f3">
       <!-- Your app title -->
-      <title>My App Test 2018</title>
+      <title>RewMov</title>
       <!-- Path to Framework7 Library CSS -->
       <link rel="stylesheet" href="css/f7/framework7.bundle.min.css">
       <link rel="stylesheet" href="css/f7/framework7-icons.css">
+      <!-- <link rel="stylesheet" href="iconfont/material-icons.css">  -->
       <!-- Path to your custom app styles-->
       <link rel="stylesheet" href="css/app/my-app.css">
    </head>
@@ -20,9 +21,24 @@
       <div id="app">
          <!-- Statusbar overlay -->
          <div class="statusbar"></div>
-         <div class="panel panel-left panel-reveal">
-            ... panel content goes here ...
-         </div>
+         <div class="panel panel-left panel-cover panel-init" data-swipe="true" >
+            <div class="view">
+              <div class="page">
+                <div class="navbar">
+                  <div class="navbar-bg"></div>
+                  <div class="navbar-inner">
+                      <a href="/" class="panel-close"><i class="icon material-icons if-md">arrow_back</i></a><div class="title"></div>
+                  </div>
+                </div>
+                <div class="page-content">
+                  <div class="block"><a href="/" class="panel-close"><i class="icon material-icons if-md">home</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Home</span></a></div>
+                  <div class="block"><a href="/favorites/" class="panel-close"><i class="icon material-icons if-md">star</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Favorites</span></a></div>
+                  <div class="block"><a href="/search/" class="panel-close"><i class="icon material-icons if-md">search</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Search</span></a></div>
+                  <div class="block"><a href="/discover/" class="panel-close"><i class="icon material-icons if-md">zoom_in</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Discover</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
          <!-- Your main view, should have "view-main" class -->
          <div class="view view-main">
             <!-- Initial Page, "data-name" contains page name -->
@@ -30,44 +46,16 @@
                <!-- Top Navbar -->
                <div class="navbar">
                   <div class="navbar-inner">
-                     <div class="title">Awesome App</div>
-                  </div>
-               </div>
-               <!-- Toolbar -->
-               <div class="toolbar">
-                  <div class="toolbar-inner">
-                     <!-- Toolbar links -->
-                     <a href="#" class="link">Link 1</a>
-                     <a href="#" class="link">Link 2</a>
+                     <i class="icon material-icons if-md panel-open">menu</i>
+                     <div class="title">RewMov</div>
                   </div>
                </div>
                <!-- Scrollable page content -->
                <div class="page-content">
-                  <p>Page content goes here</p>
-                  <!--slider -->
-                  <div class="block-title">Volume</div>
-                  <div class="list simple-list">
-                     <ul>
-                        <li>
-                           <div class="item-cell width-auto flex-shrink-0">
-                              <i class="icon f7-icons ">volume_mute_fill</i>        
-                           </div>
-                           <div class="item-cell flex-shrink-3">
-                              <!-- range slider -->
-                              <div class="range-slider range-slider-init">
-                                 <input type="range" min="0" max="100" step="1" value="10">
-                              </div>
-                           </div>
-                           <div class="item-cell width-auto flex-shrink-0">
-                              <i class="icon f7-icons">volume_fill</i>        
-                           </div>
-                        </li>
-                     </ul>
-                  </div>
-                  <!-- end of slider -->
-                  <button class="button col" onclick="app.panel.open('left')">Button</button>
-                  <!-- Link to another page -->
-                  <a href="/about/">About app</a>
+                  <h1>Now Playing movies</h1>
+                     <table id="NowPlaying">
+                        
+                     </table>      
                </div>
             </div>
          </div>
@@ -76,6 +64,11 @@
       <!-- Path to Framework7 Library JS-->
       <script type="text/javascript" src="js/f7/framework7.bundle.min.js"></script>
       <!-- Path to your app js-->
-      <script type="text/javascript" src="js/app/app.js"></script>      
+      <script type="text/javascript" src="js/app/app.js"></script>
+      <script type="text/javascript" src="js/app/DB.js"></script>   
+      <script type="text/javascript" src="js/app/custom.js"></script>
+      <script>
+         GetHTMLNowPlayingMovies()
+      </script>         
    </body>
 </html>

@@ -42,7 +42,7 @@
          <!-- Your main view, should have "view-main" class -->
          <div class="view view-main">
             <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="home" class="page">
+            <div data-name="discover" class="page">
                <!-- Top Navbar -->
                <div class="navbar">
                   <div class="navbar-inner">
@@ -52,10 +52,31 @@
                </div>
                <!-- Scrollable page content -->
                <div class="page-content">
-                  <h1>Now Playing movies</h1>
-                     <table id="NowPlaying">
-                        
-                     </table>      
+                  <div class="list no-hairlines-md">
+                     <div class="block-header">Simple Dropdown Autocomplete</div>
+                     <ul>
+                       <li class="item-content item-input inline-label">
+                         <div class="item-inner">
+                           <div class="item-title item-label">Genre : </div>
+                           <div class="item-input-wrap">
+                             <input id="autocomplete-dropdown" type="text" placeholder="Fruit">
+                           </div>
+                         </div>
+                       </li>
+                       <li class="item-content item-input inline-label">
+                         <div class="item-inner">
+                           <div class="item-title item-label">Person : </div>
+                           <div class="item-input-wrap">
+                             <input id="autocomplete-dropdown" type="text" placeholder="Fruit">
+                           </div>
+                         </div>
+                       </li>
+                       <li>
+                         <span>Finding Genre : </span><br/>
+                         <span>Finding person : </span>
+                       </li>
+                     </ul>
+                   </div> 
                </div>
             </div>
          </div>

@@ -43,4 +43,4 @@ var app = new Framework7({
   ],
 });
 
-var mainView = app.views.create('.view-main',{stackPages : true});
+var mainView = app.views.create('.view-main',{stackPages : false});

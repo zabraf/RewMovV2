@@ -15,7 +15,6 @@
       <!-- <link rel="stylesheet" href="iconfont/material-icons.css">  -->
       <!-- Path to your custom app styles-->
       <link rel="stylesheet" href="css/app/my-app.css">
-      <link rel="stylesheet" href="iconfont/material-icons.css">
    </head>
    <body>
       <!-- App root element -->
@@ -28,8 +27,8 @@
                 <div class="navbar">
                   <div class="navbar-bg"></div>
                   <div class="navbar-inner">
-                     <i class="icon material-icons if-md panel-close">arrow_back</i><div class="title"></div>
-                   </div>
+                      <a href="/" class="panel-close"><i class="icon material-icons if-md">arrow_back</i></a><div class="title"></div>
+                  </div>
                 </div>
                 <div class="page-content">
                   <div class="block"><a href="/" class="panel-close"><i class="icon material-icons if-md">home</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Home</span></a></div>
@@ -41,7 +40,7 @@
             </div>
           </div>
          <!-- Your main view, should have "view-main" class -->
-         <div id="home" class="view view-main">
+         <div class="view view-main">
             <!-- Initial Page, "data-name" contains page name -->
             <div data-name="home" class="page">
                <!-- Top Navbar -->

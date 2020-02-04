@@ -43,10 +43,20 @@ function GetHTMLFavorites() {
   });
 }
 function GetHTMLDetailled(idMovies) {
+  var movie;
   db.transaction(function (tx) {
     tx.executeSql('SELECT * FROM Tbl_Movies WHERE Id_Movie = ' + idMovies, [], function (tx, results) {
-      console.log(results.rows[0]);
-      return results.rows[0];
+      movie = results.rows[0];
+      var date = new Date(movie.Dt_ReleaseDate);
+      document.getElementById("title").innerHTML = decodeURI(movie.Nm_Title);
+      document.getElementById("image").src = movie.Blb_Image;
+      document.getElementById("year").innerHTML = date.getFullYear();
+      document.getElementById("rating").innerHTML = movie.Nb_VoteAverage + "/10";
+      document.getElementById("synopsis").innerHTML = decodeURI(movie.Txt_Synopsis);
+      document.getElementById("genres").innerHTML = movie.Id_Genre;
+      document.getElementById("release").innerHTML = date.toLocaleString('default', {day : 'numeric',month : 'long',year : "numeric"})
+      document.getElementById("original").innerHTML = movie.Txt_OriginalLanguage;
+      
     }, null);
   });
 }

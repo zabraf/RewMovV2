@@ -27,9 +27,7 @@ var app = new Framework7({
       url: 'detailled.html',
       on:{
         pageInit: function (event, page) {
-          console.log(page.route.params.id)
-          var movie = GetHTMLDetailled(page.route.params.id);
-          console.log(movie);
+          GetHTMLDetailled(page.route.params.id);
         },
       }
     },

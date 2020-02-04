@@ -25,6 +25,13 @@ var app = new Framework7({
     },
     { path: '/movie/:id',
       url: 'detailled.html',
+      on:{
+        pageInit: function (event, page) {
+          console.log(page.route.params.id)
+          var movie = GetHTMLDetailled(page.route.params.id);
+          console.log(movie);
+        },
+      }
     },
     { path: '/favorites/',
       url: 'favorite.html',
@@ -43,4 +50,4 @@ var app = new Framework7({
   ],
 });
 
-var mainView = app.views.create('.view-main',{stackPages : false});
+var mainView = app.views.create('#home',{stackPages : false});

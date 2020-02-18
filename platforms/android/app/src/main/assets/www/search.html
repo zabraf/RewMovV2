@@ -1,48 +1,5 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <!-- Required meta tags-->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <!-- Color theme for statusbar -->
-      <meta name="theme-color" content="#2196f3">
-      <!-- Your app title -->
-      <title>RewMov</title>
-      <!-- Path to Framework7 Library CSS -->
-      <link rel="stylesheet" href="css/f7/framework7.bundle.min.css">
-      <link rel="stylesheet" href="css/f7/framework7-icons.css">
-      <!-- <link rel="stylesheet" href="iconfont/material-icons.css">  -->
-      <!-- Path to your custom app styles-->
-      <link rel="stylesheet" href="css/app/my-app.css">
-   </head>
-   <body>
-      <!-- App root element -->
-      <div id="app">
-         <!-- Statusbar overlay -->
-         <div class="statusbar"></div>
-         <div class="panel panel-left panel-cover panel-init" data-swipe="true" >
-            <div class="view">
-              <div class="page">
-                <div class="navbar">
-                  <div class="navbar-bg"></div>
-                  <div class="navbar-inner">
-                      <a href="/" class="panel-close"><i class="icon material-icons if-md">arrow_back</i></a><div class="title"></div>
-                  </div>
-                </div>
-                <div class="page-content">
-                  <div class="block"><a href="/" class="panel-close"><i class="icon material-icons if-md">home</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Home</span></a></div>
-                  <div class="block"><a href="/favorites/" class="panel-close"><i class="icon material-icons if-md">star</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Favorites</span></a></div>
-                  <div class="block"><a href="/search/" class="panel-close"><i class="icon material-icons if-md">search</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Search</span></a></div>
-                  <div class="block"><a href="/discover/" class="panel-close"><i class="icon material-icons if-md">zoom_in</i><span class="tabbar-label" style="height: 100%; vertical-align: middle;"> Discover</span></a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-         <!-- Your main view, should have "view-main" class -->
-         <div class="view view-main">
-            <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="home" class="page">
+
+            <div data-name="search" class="page page-search">
                <!-- Top Navbar -->
                <div class="navbar">
                   <div class="navbar-inner">
@@ -65,10 +22,25 @@
                        </li>
                        <li class="item-content item-input">
                            <div class="item-inner">
-                             <div class="item-title item-label">Date</div>
-                             <div class="item-input-wrap">
-                               <input type="date"  placeholder="Please choose...">
-                             </div>
+                            <a class="item-link smart-select smart-select-init" data-open-in="sheet" style="width: 50%;">
+                              <select name="mac-windows">
+                                <option value="None">None</option>
+                                <option value="windows">Windows</option>
+                                <option value="windows">Windows</option>
+                                <option value="windows">Windows</option>
+                                <option value="windows">Windows</option>
+                                <option value="windows">Windows</option>
+                                <option value="windows">Windows</option> <option value="windows">Windows</option>
+                                <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option>
+                                <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option>
+                              </select>
+                              <div class="item-content">
+                                <div class="item-inner">
+                                  <div class="item-title">Year</div>
+                                </div>
+                              </div>
+                            </a>
+                               <button class="col button button-fill button-round">Search</button>
                            </div>
                          </li>
                        </ul>
@@ -95,17 +67,4 @@
                            </a>
                </div>
             </div>
-         </div>
-      </div>
-      <script type="text/javascript" src="cordova.js"></script>
-      <!-- Path to Framework7 Library JS-->
-      <script type="text/javascript" src="js/f7/framework7.bundle.min.js"></script>
-      <!-- Path to your app js-->
-      <script type="text/javascript" src="js/app/app.js"></script>
-      <script type="text/javascript" src="js/app/DB.js"></script>   
-      <script type="text/javascript" src="js/app/custom.js"></script>
-      <script>
-         GetHTMLNowPlayingMovies()
-      </script>         
-   </body>
-</html>
+      

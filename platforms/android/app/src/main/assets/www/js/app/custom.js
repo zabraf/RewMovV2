@@ -5,7 +5,7 @@ function InsertNowPlayingMovies() {
 
         return reponse.blob();
       }).then(function (reponse) {
-        var reader = new FileReader();
+        let reader = new FileReader();
         reader.readAsDataURL(reponse);
         reader.onloadend = function () {
           el["poster_path"] = reader.result;
@@ -20,11 +20,11 @@ function GetHTMLNowPlayingMovies() {
     InsertNowPlayingMovies();
   }
   else {
-    var html = "";
+    let html = "";
     db.transaction(function (tx) {
       tx.executeSql('SELECT * FROM Tbl_Movies', [], function (tx, results) {
-        for (var i = 0; i < results.rows.length; i++) {
-          html += '<tr> <td style="width: 25%; height: auto;"id="img"><img style="width : 100%" src="' + results.rows[i]["Blb_Image"] + '"/></td> <td valign="Top"><a class="notA" href="/Movie/' + results.rows[i]["Id_Movie"] + '"> <h3 style="margin: 0px;">' + decodeURI(results.rows[i]["Nm_Title"]) + '</h3>' + ' Rating : ' + results.rows[i]["Nb_VoteAverage"] + '/10 <h6 style="margin: 0px;">' + decodeURI(results.rows[i]["Txt_Synopsis"]) + '</h6></a><button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button> </td> </tr></a>';
+        for (let i = 0; i < results.rows.length; i++) {
+          html += '<tr> <td style="width: 25%; height: auto;"id="img"><img style="width : 100%" src="' + results.rows[i]["Blb_Image"] + '"/></td> <td valign="Top"><a class="notA" href="/Movie/' + results.rows[i]["Id_Movie"] + '"> <h3 style="margin: 0px;">' + decodeURI(results.rows[i]["Nm_Title"]) + '</h3>' + ' Rating : ' + results.rows[i]["Nb_VoteAverage"] + '/10 <h6 style="margin: 0px;">' + decodeURI(results.rows[i]["Txt_Synopsis"]) + '</h6></a><button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button></a> </td> </tr>';
         }
         document.getElementById("NowPlaying").innerHTML = html;
       }, null);
@@ -32,22 +32,22 @@ function GetHTMLNowPlayingMovies() {
   }
 }
 function GetHTMLFavorites() {
-  var html = "";
+  let html = "";
   db.transaction(function (tx) {
     tx.executeSql('SELECT * FROM Tbl_Movies WHERE Is_favorite = 1', [], function (tx, results) {
-      for (var i = 0; i < results.rows.length; i++) {
-        html += '<tr> <td style="width: 25%; height: auto;"id="img"><img style="width : 100%" src="' + results.rows[i]["Blb_Image"] + '"/></td> <td valign="Top"><a class="notA" href="/Movie/' + results.rows[i]["Id_Movie"] + '"> <h3 style="margin: 0px;">' + decodeURI(results.rows[i]["Nm_Title"]) + '</h3>' + ' Rating : ' + results.rows[i]["Nb_VoteAverage"] + '/10 <h6 style="margin: 0px;">' + decodeURI(results.rows[i]["Txt_Synopsis"]) + '</h6></a><button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button> </td> </tr></a>';
+      for (let i = 0; i < results.rows.length; i++) {
+        html += '<tr> <td style="width: 25%; height: auto;"id="img"><img style="width : 100%" src="' + results.rows[i]["Blb_Image"] + '"/></td> <td valign="Top"><a class="notA" href="/Movie/' + results.rows[i]["Id_Movie"] + '"> <h3 style="margin: 0px;">' + decodeURI(results.rows[i]["Nm_Title"]) + '</h3>' + ' Rating : ' + results.rows[i]["Nb_VoteAverage"] + '/10 <h6 style="margin: 0px;">' + decodeURI(results.rows[i]["Txt_Synopsis"]) + '</h6></a><button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button></a> </td> </tr>';
       }
       document.getElementById("favorites").innerHTML = html;
     }, null);
   });
 }
 function GetHTMLDetailled(idMovies) {
-  var movie;
+  let movie;
   db.transaction(function (tx) {
     tx.executeSql('SELECT * FROM Tbl_Movies WHERE Id_Movie = ' + idMovies, [], function (tx, results) {
       movie = results.rows[0];
-      var date = new Date(movie.Dt_ReleaseDate);
+      let date = new Date(movie.Dt_ReleaseDate);
       document.getElementById("title").innerHTML = decodeURI(movie.Nm_Title);
       document.getElementById("image").src = movie.Blb_Image;
       document.getElementById("year").innerHTML = date.getFullYear();
@@ -61,7 +61,7 @@ function GetHTMLDetailled(idMovies) {
   });
 }
 function GetNowPlayingMovies() {
-  var maRequete = new Request('https://api.themoviedb.org/3/movie/now_playing?language=en-EN&page=1', {
+  let maRequete = new Request('https://api.themoviedb.org/3/movie/now_playing?language=en-EN&page=1', {
     method: 'GET',
     headers: { "Authorization": "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzY2RjMTk0ODc1YTYxNWQ3OWQ0NDMxMTgyMGRlY2Q2ZSIsInN1YiI6IjVkY2E1ZWQwNmMwZTRmMDAxODNkOTM2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mYxJPYquR3b6LzocmRLmeysJHbFnOyekblVIU21stzQ" }
   });
@@ -72,7 +72,15 @@ function GetNowPlayingMovies() {
   });
 }
 function GetSearchedMovies(search,year) {
-  var maRequete = new Request('https://api.themoviedb.org/3/search/movie?language=en-US&query=' + search + '&page=1&include_adult=false&year=' + year, {
+  let requestString = "https://api.themoviedb.org/3/search/movie?language=en-US&page=1&include_adult=false"
+  //'&query=' search;
+  //'&year=' + year;
+  if(query != null)
+  {
+
+  }
+  let maRequete = new Request(requestString, {
+  
     method: 'GET',
     headers: { "Authorization": "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzY2RjMTk0ODc1YTYxNWQ3OWQ0NDMxMTgyMGRlY2Q2ZSIsInN1YiI6IjVkY2E1ZWQwNmMwZTRmMDAxODNkOTM2ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mYxJPYquR3b6LzocmRLmeysJHbFnOyekblVIU21stzQ" }
   });
@@ -84,8 +92,8 @@ function GetSearchedMovies(search,year) {
 }
 function AddOrRemoveFavorite(idMovies,value,button)
 {
-  var html = '<i class="icon material-icons if-md">';
-  var lastClass = document.getElementsByClassName(button.className).length - 1
+  let html = '<i class="icon material-icons if-md">';
+  let lastClass = document.getElementsByClassName(button.className).length - 1
   if(value)
   {
     html += "star</i>";

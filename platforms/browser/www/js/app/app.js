@@ -1,5 +1,5 @@
 var app = new Framework7({
-  
+
   Movies: [],
   // App root element
   root: '#app',
@@ -17,41 +17,45 @@ var app = new Framework7({
     {
       path: '/',
       url: 'index.html',
-      on:{
+      on: {
         pageAfterIn: function (event, page) {
           GetHTMLNowPlayingMovies();
         },
       }
     },
-    { path: '/movie/:id',
+    {
+      path: '/movie/:id',
       url: 'detailled.html',
-      on:{
+      on: {
         pageInit: function (event, page) {
           GetHTMLDetailled(page.route.params.id);
         },
       }
     },
-    { path: '/favorites/',
+    {
+      path: '/favorites/',
       url: 'favorite.html',
-      on:{
+      on: {
         pageAfterIn: function (event, page) {
           GetHTMLFavorites();
         },
       }
     },
-    { path: '/search/',
+    {
+      path: '/search/',
       url: 'search.html',
-      on:{
+      on: {
         pageAfterIn: function (event, page) {
           SetDropDown();
         },
       }
-     
+
     },
-    { path: '/discover/',
+    {
+      path: '/discover/',
       url: 'discover.html',
     },
   ],
 });
 
-var mainView = app.views.create('#home',{stackPages : false});
+var mainView = app.views.create('#home', { stackPages: false });

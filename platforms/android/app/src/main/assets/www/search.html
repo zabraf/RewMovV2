@@ -1,70 +1,43 @@
-
-            <div data-name="search" class="page page-search">
-               <!-- Top Navbar -->
-               <div class="navbar">
-                  <div class="navbar-inner">
-                     <i class="icon material-icons if-md panel-open">menu</i>
-                     <div class="title">RewMov</div>
-                  </div>
-               </div>
-               <!-- Scrollable page content -->
-               <div class="page-content">
-                  <div class="list no-hairlines-md">
-                     <ul>
-                       <li class="item-content item-input">
-                         <div class="item-inner">
-                           <div class="item-title item-label">Title</div>
-                           <div class="item-input-wrap">
-                             <input type="text" placeholder="Title of the movie">
-                             <span class="input-clear-button"></span>
-                           </div>
-                         </div>
-                       </li>
-                       <li class="item-content item-input">
-                           <div class="item-inner">
-                            <a class="item-link smart-select smart-select-init" data-open-in="sheet" style="width: 50%;">
-                              <select name="mac-windows">
-                                <option value="None">None</option>
-                                <option value="windows">Windows</option>
-                                <option value="windows">Windows</option>
-                                <option value="windows">Windows</option>
-                                <option value="windows">Windows</option>
-                                <option value="windows">Windows</option>
-                                <option value="windows">Windows</option> <option value="windows">Windows</option>
-                                <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option>
-                                <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option> <option value="windows">Windows</option>
-                              </select>
-                              <div class="item-content">
-                                <div class="item-inner">
-                                  <div class="item-title">Year</div>
-                                </div>
-                              </div>
-                            </a>
-                               <button class="col button button-fill button-round">Search</button>
-                           </div>
-                         </li>
-                       </ul>
-                     </div>
-                         <a href="#" style="text-decoration: none; color: black;">
-                             <div class="block block-strong" >
-                                 <table>
-                                   <tr> 
-                                     <td style="width: 25%; height: auto;">
-                                       <img src="https://image.tmdb.org/t/p/w500/8gd71hpzHIF3gCkmJBwV5egtu3k.jpg" style="width: 100%; height: auto;">
-                                     </td>
-                                     <td valign="Top">
-                                       <h3 style="margin: 0px;">john wick 3 parabellum</h3>
-                                       2019
-                                       <br/>
-                                       Rating : 9/10
-                                       <h6 style="margin: 0px;">Synopsis</h6>
-                                       <i class="icon material-icons if-md" style="padding-left: 90%;">star_border</i>
-                                     </td>
-                                   
-                                   </tr>
-                                 </table>      
-                             </div>
-                           </a>
-               </div>
+<div data-name="search" class="page page-search">
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="navbar-inner">
+      <i class="icon material-icons if-md panel-open">menu</i>
+      <div class="title">RewMov</div>
+    </div>
+  </div>
+  <!-- Scrollable page content -->
+  <div class="page-content">
+    <div class="list no-hairlines-md">
+      <ul>
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <div class="item-title item-label">Title</div>
+            <div class="item-input-wrap">
+              <input id="titleSearch" type="text" placeholder="Title of the movie" required>
+              <span class="input-clear-button"></span>
             </div>
-      
+          </div>
+        </li>
+        <li class="item-content item-input">
+          <div class="item-inner">
+            <a class="item-link smart-select smart-select-init" data-open-in="sheet" style="width: 75%;">
+              <select name="mac-windows" id="yearSearch">
+              </select>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">Year</div>
+                </div>
+              </div>
+            </a>
+            <!--TODO: on change of text button is ok  -->
+            <button class="col button button-fill button-round"  onclick="GetSearchedMovies(document.getElementById('titleSearch'),document.getElementById('yearSearch'))">Search</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <table id="searched">
+
+    </table>
+  </div>
+</div>

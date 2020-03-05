@@ -41,6 +41,12 @@ var app = new Framework7({
     },
     { path: '/search/',
       url: 'search.html',
+      on:{
+        pageAfterIn: function (event, page) {
+          SetDropDown();
+        },
+      }
+     
     },
     { path: '/discover/',
       url: 'discover.html',

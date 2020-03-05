@@ -19,7 +19,7 @@ function CreateLastUpdate() {
     tx.executeSql('CREATE TABLE IF NOT EXISTS Tbl_LastUpdate(Id_LastUpdate INTEGER primary key,Nm_Table TEXT,Dttm_LastUpdateAt TEXT)');
   });
 }
-function InsertMovies(idMovies,title, synopsis, voteAverage, releaseDate, originalLanguage, image, isPlaying, isFavorite) {
+function InsertMovies(idMovies, title, synopsis, voteAverage, releaseDate, originalLanguage, image, isPlaying, isFavorite) {
   db.transaction(function (tx) {
     tx.executeSql('INSERT INTO Tbl_Movies (Id_Movie, Nm_Title, Txt_Synopsis, Nb_VoteAverage, Dt_ReleaseDate, Txt_OriginalLanguage, Blb_Image, Is_Playing, Is_Favorite) VALUES (' + idMovies + ',"' + title + '", "' + synopsis + '", ' + voteAverage + ', "' + releaseDate + '", "' + originalLanguage + '", "' + image + '", ' + isPlaying + ', ' + isFavorite + ' )');
   });
@@ -34,19 +34,14 @@ function InsertMovieGenre(idMovie, idGenre) {
     tx.executeSql('INSERT INTO FK_Tbl_MovieGenre (Fk_Id_Movie ,Fk_Id_Genre) VALUES (' + idMovie + ', "' + idGenre + '")');
   });
 }
-function InsertLastUpdate(nameTable) {
+function InsertOrUpdateLastUpdate(nameTable) {
   db.transaction(function (tx) {
-    tx.executeSql('INSERT INTO Tbl_LastUpdate(Nm_Table) VALUES ("' + nameTable + '")');
+    tx.executeSql('INSERT OR REPLACE INTO Tbl_LastUpdate(Nm_Table,Dttm_LastUpdateAt) VALUES ("' + nameTable + '","' + Date.now() + '")');
   });
 }
-function UpdateLastUpdate(nameTable) {
+function UpdateFavorite(idMovies, value) {
   db.transaction(function (tx) {
-    tx.executeSql('UPDATE Tbl_LastUpdate SET Dttm_LastUpdateAt=datetime() WHERE Nm_Table="' + nameTable + '"');
-  });
-}
-function UpdateFavorite(idMovies,value) {
-  db.transaction(function (tx) {
-    tx.executeSql('UPDATE Tbl_Movies SET Is_Favorite='+value+' WHERE Id_Movie="' + idMovies + '"');
+    tx.executeSql('UPDATE Tbl_Movies SET Is_Favorite=' + value + ' WHERE Id_Movie="' + idMovies + '"');
   });
 }
 function DeleteNowPlayingMovies() {
@@ -59,5 +54,3 @@ function DeleteGenre() {
     tx.executeSql('DELETE FROM Tbl_Genres');
   });
 }
-
-

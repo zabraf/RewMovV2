@@ -1,42 +1,43 @@
 <div data-name="detailled" class="page page-detailled">
-   <!-- Top Navbar -->
-   <div class="navbar">
-      <div class="left">
-         <a href="#" class="link back">
-            <i class="icon material-icons">arrow_back</i>
-            <!--TODO: <button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button> -->
-         </a>
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="left">
+      <a href="#" class="link back">
+        <i class="icon material-icons">arrow_back</i>
+        <!--TODO: <button class=' + results.rows[i]["Id_Movie"] + ' onclick="' + (results.rows[i]["Is_Favorite"] ? "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",0,this)" : "AddOrRemoveFavorite(" + results.rows[i]["Id_Movie"] + ",1,this)") + '" type="button" style="margin-left: 90%; width: 10%; padding : 0%;background: transparent; border: none !important;"><i class="icon material-icons if-md">' + (results.rows[i]["Is_Favorite"] ? "star" : "star_border") + '</i></button> -->
+      </a>
+    </div>
+  </div>
+  <!-- Scrollable page content -->
+  <div class="page-content">
+    <div class="row">
+      <div class="blocks col-100">
+        <h1 id="title"></h1>
       </div>
-   </div>
-   <!-- Scrollable page content -->
-   <div class="page-content">
-      <div class="row">
-         <div class="blocks col-100">
-           <h1 id="title"></h1>
-         </div>
-         <div class="block col-25"></div>
-         <div class="block col-50" >
-           <img style="width : 100%" id="image">
-         </div>
-         <div class="block col-25"></div>
- 
-         <div class="block col-75">
-           <h1 style="margin : 0px;" id="year">2019</h1>
-         </div>
-         <div class="block col-25"><span>raiting :</span>
-           <div id="rating" style="margin-right : 5%;border-radius: 50%;display: inline-block;padding: 8px;background: #fff;border: 2px solid #666;color: #666;text-align: center;">
-             9/19</div>
-         </div>
-         <div style="text-align: right;width: 100%;">
-         </div>
-         <div class="blocks col-100">
-             <h2>Synopsis</h2>
-           <p id="synopsis">
-           </p>
-           <span> Genre : <span id="genres"></span></span><br/>
-           <span> Release date : <span id="release">1</span></span><br/>
-           <span> Original language : <span id="original">1</span></span>
-         </div>
-       </div>
-   </div>
+      <div class="block col-25"></div>
+      <div class="block col-50">
+        <img style="width : 100%" id="image">
+      </div>
+      <div class="block col-25"></div>
+
+      <div class="block col-75">
+        <h1 style="margin : 0px;" id="year">2019</h1>
+      </div>
+      <div class="block col-25"><span>raiting :</span>
+        <div id="rating"
+          style="margin-right : 5%;border-radius: 50%;display: inline-block;padding: 8px;background: #fff;border: 2px solid #666;color: #666;text-align: center;">
+          9/19</div>
+      </div>
+      <div style="text-align: right;width: 100%;">
+      </div>
+      <div class="blocks col-100">
+        <h2>Synopsis</h2>
+        <p id="synopsis">
+        </p>
+        <span> Genre : <span id="genres"></span></span><br />
+        <span> Release date : <span id="release">1</span></span><br />
+        <span> Original language : <span id="original">1</span></span>
+      </div>
+    </div>
+  </div>
 </div>

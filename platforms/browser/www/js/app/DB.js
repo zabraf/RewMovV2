@@ -31,12 +31,12 @@ function InsertGenre(idGenre, nameGenre) {
 }
 function InsertMovieGenre(idMovie, idGenre) {
   db.transaction(function (tx) {
-    tx.executeSql('INSERT INTO FK_Tbl_MovieGenre (Fk_Id_Movie ,Fk_Id_Genre) VALUES (' + idMovie + ', "' + idGenre + '")');
+    tx.executeSql('INSERT OR REPLACE INTO FK_Tbl_MovieGenre (Fk_Id_Movie ,Fk_Id_Genre) VALUES (' + idMovie + ', "' + idGenre + '")');
   });
 }
 function InsertOrUpdateLastUpdate(nameTable) {
   db.transaction(function (tx) {
-    tx.executeSql('INSERT OR REPLACE INTO Tbl_LastUpdate(Nm_Table,Dttm_LastUpdateAt) VALUES ("' + nameTable + '","' + Date.now() + '")');
+    tx.executeSql('INSERT OR REPLACE INTO Tbl_LastUpdate(Id_LastUpdate,Nm_Table,Dttm_LastUpdateAt) VALUES (1,"' + nameTable + '",' + Date.now() + ')');
   });
 }
 function UpdateFavorite(idMovies, value) {

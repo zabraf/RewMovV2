@@ -84,16 +84,22 @@
             tx.executeSql('SELECT Dttm_LastUpdateAt FROM Tbl_LastUpdate', [], function (tx, results) {
                let date = new Date();
                date.setDate(date.getDate() - 1)
-               let dateStored = new Date(results.rows[1])
-               if (results.rows[1] == null || dateStored < date )
+               let dateStored = new Date(parseInt(results.rows[0]["Dttm_LastUpdateAt"]))
+                console.log("updated")
+               if (results.rows[0] == null || dateStored < date )
                {
+                  console.log("updated")
                   Update();
                }
                else
                {
+                  console.log("HTML")
                   GetHTMLNowPlayingMovies()
                }
-            }, null);
+            }, function () {
+               console.log("updatedScratch")
+                  Update();
+            });
          });      
          
    </script>

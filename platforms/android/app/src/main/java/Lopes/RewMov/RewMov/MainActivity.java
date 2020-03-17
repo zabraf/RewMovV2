@@ -17,7 +17,7 @@
        under the License.
  */
 
-package Lopes.RewMov.RewMov;
+package lopes.rewMov.rewMov;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

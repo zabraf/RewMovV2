@@ -1,5 +1,9 @@
 var app = new Framework7({
-
+/*
+Raphael Lopes
+RewMov
+15.03.2020
+*/
   Movies: [],
   // App root element
   root: '#app',

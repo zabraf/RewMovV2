@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="Lopes.RewMov.RewMov" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="lopes.rewMov.rewMov" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
     <name>RewMove</name>
@@ -20,5 +24,23 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <icon density="ldpi" src="res/icon/Icon-36.png" />
+    <icon density="mdpi" src="res/icon/Icon-48.png" />
+    <icon density="hdpi" src="res/icon/Icon-72.png" />
+    <icon density="xhdpi" src="res/icon/Icon-96.png" />
+    <icon density="xxhdpi" src="res/icon/Icon-144.png" />
+    <icon density="xxxhdpi" src="res/icon/Icon-192.png" />
+    <splash density="land-xxxhdpi" src="res/splash/Splash1920x1280.png" />
+    <splash density="port-xxxhdpi" src="res/splash/Splash1280x1920.png" />
+    <splash density="land-xxhdpi" src="res/splash/Splash1600x960.png" />
+    <splash density="port-xxhdpi" src="res/splash/Splash960x1600.png" />
+    <splash density="land-xhdpi" src="res/splash/Splash1280x720.png" />
+    <splash density="port-xhdpi" src="res/splash/Splash720x1280.png" />
+    <splash density="land-hdpi" src="res/splash/Splash800x480.png" />
+    <splash density="port-hdpi" src="res/splash/Splash480x800.png" />
+    <splash density="land-mdpi" src="res/splash/Splash480x320.png" />
+    <splash density="port-mdpi" src="res/splash/Splash320x480.png" />
+    <splash density="land-ldpi" src="res/splash/Splash300x200.png" />
+    <splash density="port-ldpi" src="res/splash/Splash200x300.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>
